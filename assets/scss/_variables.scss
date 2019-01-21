@@ -20,6 +20,11 @@ Liberation Mono,
 Menlo,
 monospace;
 
+$font-family: 'Fira Sans', Helvetica, sans-serif;
+$text-font-family: 'Fira Sans', Helvetica, sans-serif;
+$heading-font-family: 'Fira Sans', Helvetica, sans-serif;
+$code-font-family: 'Fira Mono', 'Lucida Console', monospace;
+
 // Colors
 $bg-color: #fafafa !default;
 $fg-color: #212121 !default;
@@ -27,12 +32,16 @@ $alt-bg-color: #e0e0e0 !default;
 $alt-fg-color: #000 !default;
 $link-color: #1565c0 !default;
 
+$footer-fg-color: #212121 !default;
+
 // Dark colors
 $bg-color-dark: #212121 !default;
 $fg-color-dark: #dadada !default;
 $alt-bg-color-dark: #424242 !default;
 $alt-fg-color-dark: #dadada !default;
 $link-color-dark: #42a5f5 !default;
+
+$footer-fg-color-dark: #dadada !default;
 
 // Notice colors
 $fg-color-notice-note-icon: #5e35b1 !default;

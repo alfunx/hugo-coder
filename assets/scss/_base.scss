@@ -134,8 +134,13 @@ strong {
   font-weight: 700;
 }
 
-.highlight>div,
 .highlight>pre {
+  margin: 0 0 2rem;
+  padding: 1rem 1rem 0rem;
+  border-radius: 1rem;
+}
+
+.highlight>div {
   margin: 0 0 2rem;
   padding: 1rem;
   border-radius: 1rem;
@@ -144,7 +149,6 @@ strong {
 pre {
   display: block;
   font-family: $code-font-family;
-  font-size: 1.6rem;
   font-weight: 400;
   line-height: 2.6rem;
   overflow-x: auto;
@@ -154,12 +158,12 @@ pre {
     display: inline-block;
     background-color: inherit;
     color: inherit;
+    overflow-x: hidden;
   }
 }
 
 code {
   font-family: $code-font-family;
-  font-size: 1.6rem;
   font-weight: 400;
   background-color: $alt-bg-color;
   color: $fg-color;

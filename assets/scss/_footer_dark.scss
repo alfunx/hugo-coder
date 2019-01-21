@@ -1,5 +1,6 @@
 @mixin footer_dark {
   .footer {
+    color: $footer-fg-color-dark;
     a {
       color: $link-color-dark;
     }
