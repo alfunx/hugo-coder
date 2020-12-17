@@ -1,0 +1,52 @@
+@mixin scrollbar_dark {
+  &::-webkit-scrollbar-thumb {
+    background-color: $scrollbar-color-dark;
+  }
+
+  & {
+    scrollbar-color: $scrollbar-color-dark rgba(0, 0, 0, 0);
+    scrollbar-width: thin;
+  }
+}
+
+body.colorscheme-dark {
+  @include scrollbar_dark()
+
+  textarea,
+  input,
+  pre,
+  .chroma > table,
+  .chroma > div,
+  .chroma > pre,
+  .highlight > table,
+  .highlight > div,
+  .highlight > pre {
+    @include scrollbar_dark()
+  }
+
+  & {
+    @include scrollbar_dark()
+  }
+}
+
+body.colorscheme-auto {
+  @media (prefers-color-scheme: dark) {
+    @include scrollbar_dark()
+
+    textarea,
+    input,
+    pre,
+    .chroma > table,
+    .chroma > div,
+    .chroma > pre,
+    .highlight > table,
+    .highlight > div,
+    .highlight > pre {
+      @include scrollbar_dark()
+    }
+  }
+
+  & {
+    @include scrollbar_dark()
+  }
+}
