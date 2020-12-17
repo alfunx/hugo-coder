@@ -26,22 +26,24 @@ $heading-font-family: 'Fira Sans', Helvetica, sans-serif;
 $code-font-family: 'Fira Mono', 'Lucida Console', monospace;
 
 // Colors
-$bg-color: #fafafa !default;
-$fg-color: #212121 !default;
-$alt-bg-color: #e0e0e0 !default;
-$alt-fg-color: #000 !default;
-$link-color: #1565c0 !default;
+$bg-color: #f9f5d7 !default;
+$fg-color: #3c3836 !default;
+$alt-bg-color: #ebdbb2 !default;
+$alt-fg-color: #282828 !default;
+$link-color: #9d0006 !default;
 
-$footer-fg-color: #212121 !default;
+$footer-fg-color: #a89984 !default;
+$scrollbar-color: #d5c4a1 !default;
 
 // Dark colors
-$bg-color-dark: #212121 !default;
-$fg-color-dark: #dadada !default;
-$alt-bg-color-dark: #424242 !default;
-$alt-fg-color-dark: #dadada !default;
-$link-color-dark: #42a5f5 !default;
+$bg-color-dark: #1d2021 !default;
+$fg-color-dark: #ebdbb2 !default;
+$alt-bg-color-dark: #3c3836 !default;
+$alt-fg-color-dark: #fbf1c7 !default;
+$link-color-dark: #fb4934 !default;
 
-$footer-fg-color-dark: #dadada !default;
+$footer-fg-color-dark: #7c6f64 !default;
+$scrollbar-color-dark: #504945 !default;
 
 // Notice colors
 $fg-color-notice-note-icon: #5e35b1 !default;
