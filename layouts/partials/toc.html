@@ -1,0 +1,7 @@
+{{ if and (gt .WordCount 400 ) (.Params.toc) }}
+<div>
+  <h1 id="table-of-contents">Table of Contents</h1>
+  {{.TableOfContents}}
+  <hr>
+</div>
+{{ end }}

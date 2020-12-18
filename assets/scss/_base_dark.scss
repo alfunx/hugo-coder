@@ -53,6 +53,10 @@
   table th {
     border: 2px solid $alt-fg-color-dark;
   }
+
+  hr {
+    border: 1px solid $alt-bg-color-dark;
+  }
 }
 
 body.colorscheme-dark {

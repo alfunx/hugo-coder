@@ -217,6 +217,10 @@ figure {
   text-align: center;
 }
 
+hr {
+  border: 1px solid $alt-bg-color;
+}
+
 .preload-transitions * {
   $null-transition: none !important;
 

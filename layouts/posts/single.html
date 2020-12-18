@@ -31,6 +31,8 @@
         </div>
       </header>
 
+      {{ partial "toc.html" . }}
+
       <div>
         {{ if .Params.featuredImage }}
           <img src='{{ .Params.featuredImage }}' alt="Featured image"/>
