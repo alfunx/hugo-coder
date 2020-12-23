@@ -28,3 +28,32 @@ other = "Du kannst hier zurück zur <a href=\"{{ . }}\">Startseite</a>."
 
 [powered_by]
 other = "Gestaltet mit"
+
+# contact form
+
+[contact_js_required]
+other = "Bitte aktiviere JavaScript um diese Funktion zu nutzen. Alternativ kannst Du mich unter <a href=\"mailto:{{ . }}\">{{ . }}</a> erreichen."
+
+[contact_submitted]
+other = "Die Nachricht wurde versendet."
+
+[contact_error]
+other = "Beim Senden der Nachricht ist ein Fehler aufgetreten."
+
+[contact_name_placeholder]
+other = "Name"
+
+[contact_mail_placeholder]
+other = "E-Mail"
+
+[contact_subject_placeholder]
+other = "Betreff"
+
+[contact_message_placeholder]
+other = "Deine Nachricht…"
+
+[contact_submit]
+other = "Senden"
+
+[contact_honypot]
+other = "Überspringen, wenn Du ein Mensch bist"

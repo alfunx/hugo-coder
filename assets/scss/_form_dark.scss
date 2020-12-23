@@ -1,0 +1,69 @@
+@mixin form_dark {
+  button,
+  input,
+  textarea {
+    background: $input-bg-color-dark;
+    color: $input-fg-color-dark;
+    border-color: $input-bg-color-dark;
+
+    &:hover {
+      border-color: $input-border-color-hover-dark;
+    }
+    &:focus,
+    &:active {
+      border-color: $input-border-color-focus-dark;
+    }
+  }
+
+  input {
+    caret-color: $input-fg-color-dark;
+
+    &:-webkit-autofill {
+      -webkit-box-shadow: 0 0 0 32px $input-bg-color-dark inset !important;
+      -webkit-text-fill-color: $input-fg-color-dark !important;
+      caret-color: $input-fg-color-dark;
+
+      &:hover,
+      &:focus,
+      &:active {
+        -webkit-box-shadow: 0 0 0 32px $input-bg-color-dark inset !important;
+      }
+    }
+  }
+
+  textarea {
+    caret-color: $input-fg-color-dark;
+
+    &::-webkit-resizer {
+      border-color: transparent $scrollbar-color-dark $scrollbar-color-dark transparent;
+    }
+  }
+
+  .form-submit {
+    &:hover:before {
+      color: $link-color-dark;
+    }
+  }
+
+  ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: $input-placeholder-color-dark;
+  }
+
+  :-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: $input-placeholder-color-dark;
+  }
+
+  ::-ms-input-placeholder { /* Microsoft Edge */
+    color: $input-placeholder-color-dark;
+  }
+}
+
+body.colorscheme-dark {
+  @include form_dark()
+}
+
+body.colorscheme-auto {
+  @media (prefers-color-scheme: dark) {
+    @include form_dark()
+  }
+}

@@ -1,0 +1,17 @@
+{{ $umbrella := resources.Get "js/lib/umbrella.min.js" | fingerprint -}}
+<script defer src="{{ $umbrella.RelPermalink }}" integrity="{{ $umbrella.Data.Integrity }}"></script>
+{{ $contact := resources.Get "js/contact.js" | minify | fingerprint -}}
+<script defer src="{{ $contact.RelPermalink }}" integrity="{{ $contact.Data.Integrity }}"></script>
+
+<noscript><p class="contact-js-required infobox-warning">{{ i18n "contact_js_required" .Site.Params.alternativeEmail | safeHTML }}</p></noscript>
+<p class="contact-submitted infobox-success hidden">{{ i18n "contact_submitted" }}</p>
+<p class="contact-error infobox-error hidden">{{ i18n "contact_error" }}</p>
+
+<form class="contact-form hidden" action="#" method="post" accept-charset="UTF-8">
+  <input type="text" id="edit-name" name="name" placeholder="{{ i18n "contact_name_placeholder" }}" tabindex="1" required>
+  <input type="email" id="edit-mail" name="email" placeholder="{{ i18n "contact_mail_placeholder" }}" tabindex="2" required>
+  <input type="text" id="edit-url" class="hidden" name="url" placeholder="{{ i18n "contact_honypot" }}">
+  <input type="text" id="edit-subject" name="subject" placeholder="{{ i18n "contact_subject_placeholder" }}" tabindex="3" required>
+  <textarea id="edit-message" name="message" rows="6" placeholder="{{ i18n "contact_message_placeholder" }}" tabindex="4" required></textarea>
+  <button type="submit" name="submit" class="form-submit" tabindex="5" disabled>{{ i18n "contact_submit" }}</button>
+</form>
