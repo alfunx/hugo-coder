@@ -1,0 +1,52 @@
+.infobox-hint,
+.infobox-warning,
+.infobox-error,
+.infobox-success {
+  font-weight: 700;
+  color: $bg-color;
+  outline: 0;
+
+  margin: 1em 0;
+  padding: 1em;
+
+  a {
+    font-weight: inherit;
+    color: inherit;
+    text-decoration: underline;
+    &:focus,
+    &:hover {
+      color: $link-color;
+    }
+  }
+
+  &:before {
+    font-family: $symbol-font-family;
+    font-weight: 900;
+    margin-right: 0.7em;
+  }
+}
+
+.infobox-hint {
+  background-color: $infobox-hint;
+  &:before {
+    content: '\f05a';
+  }
+}
+.infobox-warning {
+  background-color: $infobox-warning;
+  &:before {
+    content: '\f06a';
+  }
+}
+.infobox-error {
+  background-color: $infobox-error;
+  &:before {
+    content: '\f071';
+  }
+}
+.infobox-success {
+  background-color: $infobox-success;
+  &:before {
+    content: '\f058';
+  }
+}

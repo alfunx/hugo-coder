@@ -1,0 +1,39 @@
+@mixin infobox_dark {
+  .infobox-hint,
+  .infobox-warning,
+  .infobox-error,
+  .infobox-success {
+    color: $bg-color-dark;
+
+    a {
+      color: inherit;
+      &:focus,
+      &:hover {
+        color: $link-color-dark;
+      }
+    }
+  }
+
+  .infobox-hint {
+    background-color: $infobox-hint-dark;
+  }
+  .infobox-warning {
+    background-color: $infobox-warning-dark;
+  }
+  .infobox-error {
+    background-color: $infobox-error-dark;
+  }
+  .infobox-success {
+    background-color: $infobox-success-dark;
+  }
+}
+
+body.colorscheme-dark {
+  @include infobox_dark()
+}
+
+body.colorscheme-auto {
+  @media (prefers-color-scheme: dark) {
+    @include infobox_dark()
+  }
+}
