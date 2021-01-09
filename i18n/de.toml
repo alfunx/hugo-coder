@@ -57,3 +57,6 @@ other = "Senden"
 
 [contact_honypot]
 other = "Überspringen, wenn Du ein Mensch bist"
+
+[contact_recaptcha]
+other = "Dieses Formular wird durch reCAPTCHA geschützt &ndash; es gelten die <a href=\"https://policies.google.com/privacy?hl=de\" target=\"_blank\">Datenschutzerklärung</a> und die <a href=\"https://policies.google.com/terms?hl=de\" target=\"_blank\">Nutzungsbedingungen</a> von Google."

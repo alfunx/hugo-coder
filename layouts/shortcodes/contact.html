@@ -1,3 +1,7 @@
+{{ if .Site.Params.reCAPTCHA }}
+<script>function onSubmit(token) { document.getElementById("contact-form").submit(); }</script>
+<script async defer src="https://www.google.com/recaptcha/api.js"></script>
+{{ end }}
 {{ $umbrella := resources.Get "js/lib/umbrella.min.js" | fingerprint -}}
 <script defer src="{{ $umbrella.RelPermalink }}" integrity="{{ $umbrella.Data.Integrity }}"></script>
 {{ $contact := resources.Get "js/contact.js" | minify | fingerprint -}}
@@ -7,11 +11,15 @@
 <p class="contact-submitted infobox-success hidden">{{ i18n "contact_submitted" }}</p>
 <p class="contact-error infobox-error hidden">{{ i18n "contact_error" }}</p>
 
-<form class="contact-form hidden" action="#" method="post" accept-charset="UTF-8">
+<form id="contact-form" class="contact-form hidden" action="#" method="post" accept-charset="UTF-8">
   <input type="text" id="edit-name" name="name" placeholder="{{ i18n "contact_name_placeholder" }}" tabindex="1" required>
   <input type="email" id="edit-mail" name="email" placeholder="{{ i18n "contact_mail_placeholder" }}" tabindex="2" required>
   <input type="text" id="edit-url" class="hidden" name="url" placeholder="{{ i18n "contact_honypot" }}">
   <input type="text" id="edit-subject" name="subject" placeholder="{{ i18n "contact_subject_placeholder" }}" tabindex="3" required>
   <textarea id="edit-message" name="message" rows="6" placeholder="{{ i18n "contact_message_placeholder" }}" tabindex="4" required></textarea>
-  <button type="submit" name="submit" class="form-submit" tabindex="5" disabled>{{ i18n "contact_submit" }}</button>
+  <button type="submit" class="form-submit" tabindex="5" disabled>{{ i18n "contact_submit" }}</button>
+  {{ if .Site.Params.reCAPTCHA }}
+  <div id="recaptcha" class="g-recaptcha" data-sitekey="{{ .Site.Params.reCAPTCHA }}" data-callback="onSubmit" data-badge="bottomleft" data-size="invisible"></div>
+  <div class="recaptcha-text">{{ i18n "contact_recaptcha" | safeHTML }}</div>
+  {{ end }}
 </form>

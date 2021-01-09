@@ -90,3 +90,6 @@ other = "Send"
 
 [contact_honypot]
 other = "Skip if you are a human"
+
+[contact_recaptcha]
+other = "This form is protected by reCAPTCHA &ndash; the Google <a href=\"https://policies.google.com/privacy\" target=\"_blank\">Privacy Policy</a> and <a href=\"https://policies.google.com/terms\" target=\"_blank\">Terms of Service</a> apply."

@@ -120,3 +120,16 @@ textarea {
     @extend %hidden;
   }
 }
+
+// hide reCAPTCHA badge, include text
+
+.grecaptcha-badge {
+  visibility: hidden;
+}
+
+.recaptcha-text {
+  overflow: hidden;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  padding-right: 1em;
+}

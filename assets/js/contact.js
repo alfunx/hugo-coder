@@ -38,6 +38,14 @@
       }
     });
 
+    // run reCAPTCHA
+    $contact_form.on('submit', function (e) {
+      if (typeof grecaptcha !== 'undefined') {
+        e.preventDefault();
+        grecaptcha.execute();
+      }
+    });
+
     // display messages
     if (location.search.substring(1) !== '') {
       switch (location.search.substring(1)) {

@@ -15,12 +15,19 @@
 // complete subject may look like: `[Website feedback] Some subject`.
 //
 // 3. Add the shortcode `{{< contact >}}` to a page, e.g. `content/contact.md`.
+//
+// 4. If you use reCAPTCHA, uncomment `$secret` and paste in your secret-key. In
+// your configuration file (config.toml, config.yaml or config.json) add the key
+// `reCAPTCHA = "..."` with your site-key under the `params` sections.
 
 // set the e-mail address that submission should be sent to
 $address = 'info@example.com';
 
 // set the e-mail subject prefix
 $prefix = 'Website feedback';
+
+// set reCAPTCHA secret key and uncomment (optional)
+//$secret = '...';
 
 
 // DO NOT EDIT ANYTHING BELOW, UNLESS YOU KNOW WHAT YOU ARE DOING
@@ -45,6 +52,11 @@ $form_url = strtok($_SERVER['HTTP_REFERER'], '?');
 
 // check if this is a post request
 if ($_SERVER['REQUEST_METHOD'] != 'POST' || empty($_POST)) {
+  _redirect($form_url);
+}
+
+// check captcha
+if (!_check_recaptcha($secret, $_POST['g-recaptcha-response'], $_SERVER['REMOTE_ADDR'])) {
   _redirect($form_url);
 }
 
@@ -113,4 +125,34 @@ function _clean_encode_text($text) {
 function _redirect($url, $success = false) {
   header('Location: ' . $url . '?' . ($success ? 'submitted' : 'error'));
   exit;
+}
+
+function _check_recaptcha($secret, $response, $remoteip = null) {
+  if (!isset($secret)) {
+    return true;
+  }
+
+  if (!isset($response)) {
+    return false;
+  }
+
+  $url = 'https://www.google.com/recaptcha/api/siteverify';
+  $data = array(
+    'secret'   => urlencode($secret),
+    'response' => urlencode($response),
+    'remoteip' => urlencode($remoteip)
+  );
+
+  $options = array(
+    'http' => array(
+      'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
+      'method'  => 'POST',
+      'content' => http_build_query($data)
+    )
+  );
+
+  $context  = stream_context_create($options);
+  $result = file_get_contents($url, false, $context);
+
+  return $result !== false && json_decode($result, true)["success"];
 }
